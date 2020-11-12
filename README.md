@@ -1,2 +1,2 @@
 # productlabel-module-pwa-studio
-ShopByBrand Module for Magento pwa-studio Venia Concept
+ProductLabel Module for Magento pwa-studio Venia Concept
