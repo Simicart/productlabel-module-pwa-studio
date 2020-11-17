@@ -2,7 +2,7 @@ import gql from 'graphql-tag'
 import { useQuery } from '@apollo/client'
 
 const GET_LABEL_DETAILS_BY_URL = gql`
-	query productDetail($urlKey: String!) {
+query productDetail($urlKey: String!) {
     productDetail: products(filter: { url_key: { eq: $urlKey } }) {
         items {
             __typename
@@ -60,7 +60,8 @@ export const useLabelDetails = props => {
    } = useQuery(GET_LABEL_DETAILS_BY_URL, {
        variables: {
            urlKey: urlKey
-       }
+       }, 
+       fetchPolicy: 'no-cache'
    });
  
    let derivedErrorMessage;

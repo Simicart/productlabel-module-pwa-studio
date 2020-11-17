@@ -110,7 +110,7 @@ const Image = props => {
 
     return (
         <div className={containerClass}>
-            <Label labelData={labelData} />
+            <Label labelData={labelData} width={props.width} ratio={props.ratio} />
             <PlaceholderImage
                 alt={alt}
                 classes={classes}
