@@ -15,6 +15,7 @@ import defaultClasses from '@magento/venia-ui/lib/components/ProductImageCarouse
 import Thumbnail from '@magento/venia-ui/lib/components/ProductImageCarousel/thumbnail';
 import Label from '../components/Label'
 import { useLabelDetails } from '../talons/useLabelDetails'
+import { DEFAULT_WIDTH_TO_HEIGHT_RATIO } from '@magento/venia-ui/lib/util/images';
 
 const IMAGE_WIDTH = 640;
 
@@ -37,7 +38,10 @@ const ProductImageCarousel = props => {
         images,
         imageWidth: IMAGE_WIDTH
     });
-
+    const { labelData, labelLoading, derivedErrorMessage } = useLabelDetails({
+        urlKey: props.url_key
+    })
+    console.log
     const {
         currentImage,
         activeItemIndex,
@@ -95,7 +99,7 @@ const ProductImageCarousel = props => {
     const chevronClasses = { root: classes.chevron };
     return (
         <div className={classes.root}>
-            <div className={classes.carouselContainer}>
+            <div className={classes.carouselContainer} style={{position: 'relative'}}>
                 <button
                     className={classes.previousButton}
                     onClick={handlePrevious}
@@ -106,6 +110,7 @@ const ProductImageCarousel = props => {
                         size={40}
                     />
                 </button>
+                <Label labelData={labelData} width={IMAGE_WIDTH} height={IMAGE_WIDTH/DEFAULT_WIDTH_TO_HEIGHT_RATIO}/>
                 {image}
                 <button className={classes.nextButton} onClick={handleNext}>
                     <Icon

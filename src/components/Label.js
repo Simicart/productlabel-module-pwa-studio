@@ -3,21 +3,17 @@ import defaultClasses from './Label.css'
 
 
 const Label = props => {
-
 	const classes = defaultClasses
 	if(props.labelData){
-		console.log(props.labelData)
 		return (
-			<div className={classes.container}>
+			<div className={classes.container} style={{height: '100%', width: '100%'}}>
 				{props.labelData.productDetail.items[0].mp_label_data.map(result => {
-					const { width, ratio } = props;
-					const height = width / ratio
-					const labelHeight = JSON.parse(result.list_position).label.height;
-					const labelWidth = JSON.parse(result.list_position).label.width;
-					const hc = (width - labelWidth)/2
-					const vc = (height - labelHeight)/2
+					const { width, height } = props;
+					const labelHeight = `${JSON.parse(result.list_position).label.height*100/height}%`;
+					const labelWidth = `${JSON.parse(result.list_position).label.width*100/width}%`;
+					const hc = `${(width-JSON.parse(result.list_position).label.width)*100/(2*width)}%`;
+					const vc = `${(height-JSON.parse(result.list_position).label.height)*100/(2*height)}%`
 					let position;
-					let css;
 					switch(result.list_position_grid) {
 						case 'tl':
 							position = {
@@ -103,26 +99,43 @@ const Label = props => {
 						)
 					} else {
 						const font = result.label_font;
-						const fontSize = result.label_font_size;
+						const fontSize = `${result.label_font_size}px`;
 						const color = result.label_color
 						const textStyle = {
 							fontFamily: font,
 							fontSize: fontSize,
 							color: color
 						}
-						return (
-							<div 
-								key={result.rule_id} 
-								className={classes.template}
-								style={position}
-							> 
-									<span
-										style={textStyle}
-									 	className={classes.text}
-									>{result.label}</span>
-									<img src={result.label_template} />
-							</div>
-						)
+						console.log(fontSize)
+						const style = {...position, ...textStyle}
+						console.log(style)
+						if(width < 460) { //max-width of items' container is 459 => code below apply for items in category 
+							return (
+								<div 
+									key={result.rule_id} 
+									className={classes.template}
+									style={style}
+								> 
+										<span
+										 	className={classes.textItem}
+										>{result.label}</span>
+										<img src={result.label_template} style={{height: '100%', width: '100%'}}/>
+								</div>
+							)
+						} else {
+							return (
+								<div 
+									key={result.rule_id} 
+									className={classes.template}
+									style={style}
+								> 
+										<span
+										 	className={classes.textCarousel}
+										>{result.label}</span>
+										<img src={result.label_template} style={{height: '100%', width: '100%'}}/>
+								</div>
+							)							
+						}
 					}
 				})}
 			</div>

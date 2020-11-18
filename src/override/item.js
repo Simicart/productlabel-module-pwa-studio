@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { string, number, shape } from 'prop-types';
 import { Link, resourceUrl } from '@magento/venia-drivers';
 import { Price } from '@magento/peregrine';
@@ -8,6 +8,10 @@ import { UNCONSTRAINED_SIZE_KEY } from '@magento/peregrine/lib/talons/Image/useI
 import { mergeClasses } from '@magento/venia-ui/lib/classify';
 import Image from '@magento/venia-ui/lib/components/Image';
 import defaultClasses from '@magento/venia-ui/lib/components/Gallery/item.css';
+import Label from '../components/Label';
+import { useLabelDetails } from '../talons/useLabelDetails'
+import { DEFAULT_WIDTH_TO_HEIGHT_RATIO } from '@magento/venia-ui/lib/util/images';
+
 
 // The placeholder image is 4:5, so we should make sure to size our product
 // images appropriately.
@@ -36,21 +40,27 @@ const ItemPlaceholder = ({ classes }) => (
     </div>
 );
 
+const max_width = 459 //max-width of each gallery item
+
 const GalleryItem = props => {
     const { item } = props;
-
+    const { labelData, labelLoading, derivedErrorMessage } = useLabelDetails({
+        urlKey: props.item.url_key
+    })
     const classes = mergeClasses(defaultClasses, props.classes);
 
     if (!item) {
         return <ItemPlaceholder classes={classes} />;
     }
 
+    const width = max_width
+
     const { name, price, small_image, url_key, url_suffix } = item;
     const productLink = resourceUrl(`/${url_key}${url_suffix}`);
-
     return (
         <div className={classes.root}>
-            <Link to={productLink} className={classes.images}>
+            <Link to={productLink} className={classes.images} style={{position: 'relative'}}>
+                <Label labelData={labelData} width={width} height={width/DEFAULT_WIDTH_TO_HEIGHT_RATIO}/>
                 <Image
                     alt={name}
                     classes={{

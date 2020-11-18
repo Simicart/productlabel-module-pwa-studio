@@ -1,4 +1,5 @@
 .container {
+	position: absolute;
 }
 
 .label {
@@ -14,6 +15,175 @@
 	z-index: 1;
 }
 
-.text {
+/*category page*/
+
+.textItem {
 	position: absolute;
+}
+
+@media screen and (max-width: 1350px) {
+	.textItem
+ {
+	    font-size: 95%;
+	}
+}
+
+@media screen and (max-width: 1200px) {
+	.textItem
+ {
+	    font-size: 90%;
+	}
+}
+
+@media screen and (max-width: 1050px) {
+	.textItem
+ {
+	    font-size: 85%;
+	}
+}
+
+@media screen and (max-width: 900px) {
+	.textItem
+ {
+	    font-size: 80%;
+	}
+}
+
+@media screen and (max-width: 750px) {
+	.textItem
+ {
+	    font-size: 70%;
+	}
+}
+
+@media screen and (max-width: 640px) {
+	.textItem
+ {
+	    font-size: 80%;
+	}
+}
+
+@media screen and (max-width: 500px) {
+	.textItem
+ {
+	    font-size: 65%;
+	}
+}
+
+@media screen and (max-width: 450px) {
+	.textItem
+ {
+	    font-size: 55%;
+	}
+}
+
+@media screen and (max-width: 400px) {
+	.textItem
+ {
+	    font-size: 50%;
+	}
+}
+
+@media screen and (max-width: 350px) {
+	.textItem
+ {
+	    font-size: 45%;
+	}
+}
+
+@media screen and (max-width: 300px) {
+	.textItem
+ {
+	    font-size: 40%;
+	}
+}
+
+@media screen and (max-width: 250px) {
+	.textItem
+ {
+	    font-size: 35%;
+	}
+}
+
+@media screen and (max-width: 250px) {
+	.textItem
+ {
+	    font-size: 30%;
+	}
+}
+
+@media screen and (max-width: 200px) {
+	.textItem
+ {
+	    font-size: 25%;
+	}
+}
+
+/*product page*/
+
+.textCarousel {
+	position: absolute;
+}
+
+@media screen and (max-width: 1100px) {
+	.textCarousel
+ {
+	    font-size: 90%;
+	}
+}
+
+@media screen and (max-width: 1023px) {
+	.textCarousel
+ {
+	    font-size: 100%;
+	}
+}
+
+@media screen and (max-width: 500px) {
+	.textCarousel
+ {
+	    font-size: 90%;
+	}
+}
+
+@media screen and (max-width: 425px) {
+	.textCarousel
+ {
+	    font-size: 80%;
+	}
+}
+
+@media screen and (max-width: 350px) {
+	.textCarousel
+ {
+	    font-size: 70%;
+	}
+}
+
+@media screen and (max-width: 300px) {
+	.textCarousel
+ {
+	    font-size: 60%;
+	}
+}
+
+@media screen and (max-width: 250px) {
+	.textCarousel
+ {
+	    font-size: 50%;
+	}
+}
+
+@media screen and (max-width: 200px) {
+	.textCarousel
+ {
+	    font-size: 40%;
+	}
+}
+
+@media screen and (max-width: 170px) {
+	.textCarousel
+ {
+	    font-size: 30%;
+	}
 }

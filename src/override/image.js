@@ -17,8 +17,6 @@ import { mergeClasses } from '@magento/venia-ui/lib/classify';
 import { DEFAULT_WIDTH_TO_HEIGHT_RATIO } from '@magento/venia-ui/lib/util/images';
 
 import defaultClasses from '@magento/venia-ui/lib/components/Image/image.css';
-import Label from '../components/Label'
-import { useLabelDetails } from '../talons/useLabelDetails'
 /**
  * The Image component renders a placeholder until the image is loaded.
  *
@@ -35,11 +33,9 @@ import { useLabelDetails } from '../talons/useLabelDetails'
  * @param {number}   props.ratio is the image width to height ratio. Defaults to `DEFAULT_WIDTH_TO_HEIGHT_RATIO` from `util/images.js`.
  * @param {Map}      props.widths a map of breakpoints to possible widths used to create the img's sizes attribute.
  */
+
 const Image = props => {
     const { images } = props;
-    const { labelData, labelLoading, derivedErrorMessage } = useLabelDetails({
-        urlKey: props.url_key
-    })
     const {
         alt,
         classes: propsClasses,
@@ -110,7 +106,6 @@ const Image = props => {
 
     return (
         <div className={containerClass}>
-            <Label labelData={labelData} width={props.width} ratio={props.ratio} />
             <PlaceholderImage
                 alt={alt}
                 classes={classes}
