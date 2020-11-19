@@ -9,7 +9,7 @@ import { mergeClasses } from '@magento/venia-ui/lib/classify';
 import Image from '@magento/venia-ui/lib/components/Image';
 import defaultClasses from '@magento/venia-ui/lib/components/Gallery/item.css';
 import Label from '../components/Label';
-import { useLabelDetails } from '../talons/useLabelDetails'
+//import { useLabelDetails } from '../talons/useLabelDetails'
 import { DEFAULT_WIDTH_TO_HEIGHT_RATIO } from '@magento/venia-ui/lib/util/images';
 
 
@@ -44,9 +44,10 @@ const max_width = 459 //max-width of each gallery item
 
 const GalleryItem = props => {
     const { item } = props;
-    const { labelData, labelLoading, derivedErrorMessage } = useLabelDetails({
+    const labelData = props.item.mp_label_data
+  /*  const { labelData, labelLoading, derivedErrorMessage } = useLabelDetails({
         urlKey: props.item.url_key
-    })
+    }) */
     const classes = mergeClasses(defaultClasses, props.classes);
 
     if (!item) {

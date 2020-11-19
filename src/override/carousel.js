@@ -38,10 +38,7 @@ const ProductImageCarousel = props => {
         images,
         imageWidth: IMAGE_WIDTH
     });
-    const { labelData, labelLoading, derivedErrorMessage } = useLabelDetails({
-        urlKey: props.url_key
-    })
-    console.log
+    const labelData = props.labelData
     const {
         currentImage,
         activeItemIndex,

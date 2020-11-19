@@ -38,6 +38,7 @@ const ERROR_FIELD_TO_MESSAGE_MAPPING = {
 
 const ProductFullDetail = props => {
     const { product } = props;
+    const labelData = props.product.mp_label_data
     const talonProps = useProductFullDetail({
         addConfigurableProductToCartMutation: ADD_CONFIGURABLE_MUTATION,
         addSimpleProductToCartMutation: ADD_SIMPLE_MUTATION,
@@ -132,7 +133,7 @@ const ProductFullDetail = props => {
                     </p>
                 </section>
                 <section className={classes.imageCarousel}>
-                    <Carousel images={mediaGalleryEntries} url_key={props.product.url_key}/>
+                    <Carousel images={mediaGalleryEntries} labelData={labelData}/>
                 </section>
                 <FormError
                     classes={{
