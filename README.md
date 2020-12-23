@@ -1,13 +1,13 @@
-# Auto Related Rroducts  module for Magento PWA Studio
+# Product Labels module for Magento PWA Studio
 
-This module acts as an add-on for [Mageplaza's Auto Related Rroducts extension](https://www.mageplaza.com/magento-2-automatic-related-products/) to make it work with Magento PWA Studio.
+This module acts as an add-on for [Mageplaza's Product Labels extension](https://www.mageplaza.com/magento-2-product-labels/) to make it work with Magento PWA Studio.
 
-End result: https://automatic-related-products.pwa-commerce.com/
+End result: https://productlabel.pwa-commerce.com/shop-the-look.html
 
 ## Requirements
 
 - Magento version 2.4.* or >= 2.3.5
-- Got [Mageplaza Product Label extension](https://www.mageplaza.com/magento-2-product-labels/) and [Product Label GraphQL](https://github.com/mageplaza/magento-2-product-labels-graphql) installed
+- Got [Mageplaza Product Labels extension](https://www.mageplaza.com/magento-2-product-labels/) and [Product Labels GraphQL](https://github.com/mageplaza/magento-2-product-labels-graphql) installed
 
 ## Installation
 
@@ -49,3 +49,7 @@ Modify the dependencies of your project to add Shop By Brand extension.
 ```
   yarn install && yarn watch
 ```
+
+## Contribution
+
+[SimiCart Team](https://www.simicart.com/pwa.html/) & [Mageplaza Team](https://www.mageplaza.com/)
